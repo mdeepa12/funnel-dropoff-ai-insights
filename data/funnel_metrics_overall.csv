@@ -1,0 +1,6 @@
+device,region,step,step_order,users,prev_users,step_conversion_rate,step_dropoff_rate,step_conversion_pct,step_dropoff_pct
+all,all,visit,1,75000,,,,,
+all,all,signup,2,26212,75000.0,0.3494933333333333,0.6505066666666667,34.95,65.05
+all,all,product_view,3,18338,26212.0,0.699603235159469,0.30039676484053107,69.96,30.04
+all,all,add_to_cart,4,4648,18338.0,0.25346275493510745,0.7465372450648926,25.35,74.65
+all,all,purchase,5,2542,4648.0,0.5469018932874354,0.45309810671256456,54.69,45.31
