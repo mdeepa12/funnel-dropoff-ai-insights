@@ -1,5 +1,5 @@
-```txt
-pandas
-numpy
-streamlit
-plotly
+streamlit==1.35.0
+pandas==2.2.2
+numpy==2.0.1
+plotly==5.22.0
+
