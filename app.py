@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-import plotly.express as px
+
 
 st.set_page_config(page_title="Funnel Drop-Off Dashboard (2024)", layout="wide")
 
@@ -32,8 +32,9 @@ with col1:
     st.dataframe(overall[["step_order","step","users","step_conversion_pct","step_dropoff_pct"]], use_container_width=True)
 
 with col2:
-    fig = px.bar(overall.sort_values("step_order"), x="step", y="users", title="Users by Funnel Step (Overall)")
-    st.plotly_chart(fig, use_container_width=True)
+    st.bar_chart(
+    overall.sort_values("step_order").set_index("step")["users"])
+
 
 # Segment funnel
 st.subheader("Funnel by Segment (Device / Region)")
@@ -51,11 +52,10 @@ with col4:
     if len(tmp) == 0:
         st.info("No segment rows found for selected filters.")
     else:
-        fig2 = px.line(tmp.sort_values("step_order"), x="step", y="step_dropoff_pct",
-                       color="region" if device != "all" and region == "all" else None,
-                       markers=True,
-                       title="Step Drop-off % (Selected Segment)")
-        st.plotly_chart(fig2, use_container_width=True)
+        st.line_chart(
+    by_seg.sort_values("step_order").set_index("step")["step_dropoff_pct"]
+)
+
 
 st.markdown("---")
 st.caption("Built with SQL + Python + Streamlit. AI-assisted insights included in /ai.")
