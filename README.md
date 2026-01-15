@@ -109,6 +109,14 @@ Raw Event Data (CSV)
 
 ## Future Enhancements
 
+<<<<<<< HEAD
 - Statistical significance testing between segments  
 - Time-based funnel trend analysis  
-- Deeper experimentation framework integration  
+- Deeper experimentation framework integration 
+
+## Code
+- SQL (main funnel metrics): `sql/02_funnel_metrics.sql`
+- Python (data + exports): `data/generate_events.py` and `notebooks/funnel_analysis.ipynb`
+- Dashboard: `app.py`
+
+>>>>>>> 2f658da (Add documented SQL for funnel metrics and quality checks)
