@@ -1,120 +1,114 @@
-🧭 Funnel Drop-Off Analysis with AI-Assisted Insights (2024)
+# 🧭 Funnel Drop-Off Analysis with AI-Assisted Insights (2024)
 
-SQL • Python • Streamlit
+**SQL • Python • Streamlit**
 
-🔗 Live Dashboard: https://streamapp-2024-dashboard.streamlit.app/
-🔗 Repository: https://github.com/mdeepa12/funnel-dropoff-ai-insights
+Live Dashboard: https://streamapp-2024-dashboard.streamlit.app/ 
+Repository: https://github.com/mdeepa12/funnel-dropoff-ai-insights
 
-📌 Business Problem
+---
 
-Product teams observed that a significant portion of users failed to complete purchases, but lacked clarity on where users dropped off in the funnel and why.
+## Business Problem
 
-The goal of this analysis was to:
+Product teams observed that a large portion of users failed to complete purchases, but lacked visibility into **where users dropped off in the funnel and why**.
 
-Identify high-friction funnel stages
+The objective of this analysis was to:
+- Identify high-friction funnel stages
+- Quantify conversion and drop-off rates
+- Understand differences by device and region
+- Provide actionable, data-driven recommendations to improve conversion
 
-Quantify conversion and drop-off rates
+---
 
-Understand how funnel performance varies by device and region
+## Dataset Overview
 
-Provide data-driven recommendations to improve conversion
+This project uses a large-scale **synthetic event dataset** designed to mimic real-world product usage while avoiding sensitive data.
 
-📊 Dataset Overview
+- Users: 100,000+
+- Events: Millions of event-level records
+- Funnel Steps: Visit → Product View → Add to Cart → Purchase
+- Dimensions: user_id, event_time, device, region
 
-This project uses a large-scale synthetic event dataset designed to reflect realistic product usage patterns.
+---
 
-Users: 100,000+
+## Metrics Defined
 
-Events: Millions of event-level records
+The following core product metrics were defined:
 
-Event Types: Visit, Product View, Add to Cart, Purchase
+- Step Conversion Rate  
+  Percentage of users moving from one funnel step to the next
 
-Dimensions: User ID, timestamp, device type, region
+- Step Drop-Off Rate  
+  Percentage of users exiting the funnel at each stage
 
-Synthetic data was used to simulate real-world scale while avoiding sensitive or proprietary information.
+- Overall Funnel Conversion  
+  Percentage of users completing the full funnel
 
-📐 Metrics Defined
+Metrics were calculated using **SQL aggregations** and validated in Python.
 
-The following core product metrics were defined and calculated:
+---
 
-Step Conversion Rate
-Percentage of users progressing from one funnel step to the next
+## Key Findings
 
-Step Drop-Off Rate
-Percentage of users who exit the funnel at each stage
+- The largest drop-off occurred between **Product View → Add to Cart**, indicating UX or pricing friction
+- Mobile users showed consistently higher mid-funnel drop-off than desktop users
+- Certain regions underperformed specifically at the checkout stage
 
-Overall Funnel Conversion
-Percentage of users who complete the full funnel (Visit → Purchase)
+These findings suggest issues primarily in the **mid- and late-funnel experience**, not acquisition.
 
-Metrics were computed using event-level SQL aggregations and validated through Python analysis.
+---
 
-🔍 Key Findings
+## Dashboard
 
-The largest drop-off occurred between Product View → Add to Cart, indicating potential UX or pricing friction
+An interactive Streamlit dashboard was built to:
+- Visualize funnel conversion and drop-off rates
+- Segment performance by device and region
+- Enable self-serve analysis for stakeholders
 
-Mobile users consistently showed higher mid-funnel drop-off compared to desktop users
+The dashboard reduces reliance on ad-hoc analysis and supports faster decision-making.
 
-Certain regions underperformed specifically at the checkout stage, despite similar upstream engagement
+---
 
-These patterns suggest that the issue is not acquisition, but mid- and late-funnel experience.
+## AI-Assisted Insights
 
-📈 Dashboard
+AI-assisted analysis was used to:
+- Summarize funnel performance across segments
+- Highlight meaningful conversion differences
+- Generate structured recommendations based on observed patterns
 
-An interactive Streamlit dashboard was built to allow stakeholders to:
+AI serves as a **decision-support layer**, not a replacement for analysis.
 
-Explore funnel conversion and drop-off rates by step
+---
 
-Segment performance by device type and region
+## Recommendations
 
-Quickly identify the highest-impact drop-off points
+1. Optimize Product View → Add to Cart UX, especially for mobile users  
+2. Improve mobile performance and call-to-action visibility  
+3. Investigate checkout issues in underperforming regions  
+4. Validate improvements through controlled A/B testing  
 
-The dashboard enables self-serve analysis, reducing dependency on ad-hoc analytics requests.
+---
 
-🤖 AI-Assisted Insights
+## Architecture
 
-To augment manual analysis, AI-assisted techniques were used to:
+Raw Event Data (CSV)  
+→ SQL Funnel Aggregations  
+→ Python Analysis & Validation  
+→ Streamlit Dashboard  
+→ AI-Assisted Insights
 
-Summarize key funnel patterns across segments
+---
 
-Highlight statistically meaningful differences
+## Tech Stack
 
-Generate structured recommendations based on observed drop-offs
+- SQL: Funnel and conversion analysis  
+- Python: Pandas, NumPy  
+- Visualization: Streamlit  
+- Version Control: Git, GitHub  
 
-AI insights are used as a decision-support layer, not a replacement for analytical judgment.
+---
 
-💡 Recommendations
+## Future Enhancements
 
-Based on the analysis:
-
-Optimize Product Page → Add to Cart UX
-Simplify calls-to-action and reduce friction for mobile users
-
-Improve Mobile Performance
-Prioritize mobile-specific funnel optimizations where drop-off is highest
-
-Target Checkout Improvements by Region
-Investigate payment, latency, or localization issues in underperforming regions
-
-Validate Changes via A/B Testing
-Measure impact of improvements using controlled experiments
-
-🧱 Architecture Overview
-Raw Event Data (CSV)
-        ↓
-SQL Funnel Aggregations
-        ↓
-Python Analysis & Validation
-        ↓
-Streamlit Dashboard
-        ↓
-AI-Assisted Insight Layer
-
-🛠 Tech Stack
-
-SQL: Funnel and conversion metrics
-
-Python: Pandas, NumPy for analysis
-
-Visualization: Streamlit
-
-Version Control: Git & GitHub
+- Statistical significance testing between segments  
+- Time-based funnel trend analysis  
+- Deeper experimentation framework integration  
